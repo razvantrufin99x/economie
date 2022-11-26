@@ -1,0 +1,512 @@
+//masa monetara M
+//nivelul preturilor P
+//cantit de bun eco suspuse tranzac Y
+//viteza de rotatie a monedei V
+
+double M(double P, double V, double Y)
+{
+ return (P*Y)/V;
+}
+
+
+//productivitatea marginala Wm
+//sporul de productie obtinut DQ
+//cresterea cu o uniatte a factorului DX
+//D delta
+
+double Wm(double DQ, double DX)
+{
+	return DQ/DX;
+}
+
+//rata marginala de substitutie RmS
+//factor de productie necesar pentru a compensa DX
+//reducerea cu o unitate a unui alt factor -DY
+//ai produ sa ramana aceasi
+double RmS(double DXi, double DYi)
+{
+	return -(DXi/DYi);
+}
+
+//cost totale CT
+//cost variabile CV
+//cost fix CF
+
+double Ct(double CF, double CV)
+{
+return CF+CV;
+}
+
+//consumul fix mediu CFM
+//productia obtinuta Q
+
+double CFM(double CF, double Q)
+{
+	return CF/Q;
+} 
+
+//cost variabil mediu CVM
+//cost variabil global CV
+
+double CVM(double CV, double Q)
+{
+ return CF/Q;
+}
+
+//cost mediu total CTM
+//cost variabil mediu CVM
+//cost fix mediu CFM
+
+double CTM(double CFM, double CVM)
+{
+ return CFM+CVM;
+}
+
+double CTM2(double CF, double CV, double Q)
+{
+ return (CF+CV)/Q;
+}
+
+//consumul marginal
+//costul marginal Cm
+//spor de cheltuieli totale DCT
+//crestere consum de factori de productie pentru a obtine cresterea cu o unitate a productiei DQ
+
+ double Cm(double DCT, double DQ)
+{
+ return DCT/DQ;
+}
+
+ double Cm2(double DCF, double DCV, double Q)
+{
+ return (DCV+DCV)/DQ;
+}
+
+//nivelul randamentul sau productivitatea W
+//bunurile obtinute Q
+//efort depus Fi
+
+ double W(double Q, double Fi)
+{
+ return Q/Fi;
+}
+
+
+//productivitatea mediea mucnii WLm
+// productia totala SQ
+//S suma
+//munca totala depusa SL
+//um/salariat/zi
+
+ double WLm(double SQ, double SL)
+{
+ return SQ/SL;
+}
+
+
+//productivitatea medie a capitalului WKm
+//rezultate depuse in perioada de timp SQ
+//capital tehnic utilizat SK
+
+ double WKm(double SQ, double SK)
+{
+ return SQ/SK;
+}
+
+
+//productivitatea medie a pamantului WPm
+//efect util obtinut SQ
+//suprafata de teren SP
+
+ double WPm(double SQ, double SP)
+{
+ return SQ/SP;
+}
+
+//productivitatea medie globala a factorilor de productie Wgm
+ double Wgm(double Q, double L, double K, double P)
+{
+ return Q/(L+K+P);
+}
+
+
+//productivitatea marginala a muncii WLmg
+ double WLmg(double DQ, double DL)
+{
+ return DQ/DL;
+}
+
+//productivitatea marginala a capitalurilor WKmg
+ double WKmg(double DQ, double DK)
+{
+ return DQ/DK;
+}
+
+//productivitatea marginala a pamanturilor WPmg
+ double WPmg(double DQ, double DP)
+{
+ return DQ/DP;
+}
+
+//productivitatea globala marginala  Wgmg
+ double Wgmg(double DQ, double DL, double DK, double DP )
+{
+ return DQ/(DL+DK+DP);
+}
+
+//unitatea totala UT
+
+double UT(ref List<double> ui)
+{
+	double suma = 0;
+	for(int i = 0 ; i< ui.Count ; i++)
+	{
+		suma+= ui[i];
+	}
+	return suma;
+}
+
+//unitatea monetara cheltuita UmX
+//produsul achizitionat PX
+
+ double UP(double UmX, double PX)
+{
+ return UmX/PX;
+}
+
+//cererea
+
+ string C(double P0, double Q0, double P!, double Q2 )
+{
+string r = "";
+  if(P0*Q0 < P1*Q1) { r = "crerere elastica"; }
+ else if(P0*Q0 == P1*Q1) { r = "crerere de elasticitate unitara"; }
+ else if (P0*Q0 > P1*Q1) { r = "crerere de elasticitate subunitara"; }
+return r;
+}
+
+
+//oferta
+string O(double DP, double DQ )
+{
+string r = "";
+  if(DP<DQ) { r = "oferta elastica"; }
+ else if(DP==DQ) { r = "oferta de elasticitate unitara"; }
+ else if (DP>DQ) { r = "oferta inelastica"; }
+return r;
+}
+
+
+
+//dobanda D
+//creditul sau capitalul C
+//rata dobanzii d
+
+double D(double C ,double d)
+{
+ return C * d;
+}
+
+double danuala(double D,double C )
+{
+ return (D/C)*100;
+}
+double Dcomupusa(double d , double n)
+{
+ return (1+d)^n;
+}
+
+//suma Sn
+double Dcompusa2(double Sn ,double C)
+{
+return Sn-C;
+}
+
+
+double Sn(double C,double n, double d )
+{
+ return C*(1+d/100)^n;
+}
+
+//salariul real SR
+//salariul nominal SN
+//nivel preturi P
+
+double SR(double  SN,double P)
+{
+ return SN/P;
+}
+
+//indicele salariul real ISR
+//salariul real SR1 si SR0
+
+double ISR(double  SR0,double SR1)
+{
+ return SR1/SR0;
+}
+
+
+//rata profitului RP
+//p masa profitului
+//C capitalul
+//CA cifra de afaceri
+
+
+double RP(double  C,double P)
+{
+ return (P/C)*100;
+}
+
+double RP2(double  CA,double P)
+{
+ return (P/CA)*100;
+}
+
+
+
+//PIB produs intern brut
+//PIN produs intern net
+//PNN produs national net
+//PNB produs national brut
+//CCF consumul de capitaluri fixe
+
+double PIN(double  PIB,double CCF)
+{
+ return PIB-CCF;
+}
+
+double PNN(double  PNB,double CCF)
+{
+ return PNB-CCF;
+}
+
+
+//venit V
+//consum C
+//economii S
+
+double V(double  C,double S)
+{
+ return C+S;
+}
+
+
+
+//consumul in total venituri
+double c(double  V,double C)
+{
+ return C/V;
+}
+
+double C(double  V,double c)
+{
+ return c*V;
+}
+
+
+//cresterea veniturilor DV
+//cresterea consumului DC
+//cresterea economiilor DS
+
+double DV(double  DC,double DS)
+{
+ return DC+DS;
+}
+
+//inclinatia marginala spre consum c
+
+double c(double  DV,double DC)
+{
+ return DC/DV;
+}
+
+
+
+//venit V
+//C cheltuieli de consum
+//I cheltuieli pt investitii
+
+double V2(double  C,double I)
+{
+ return C+I;
+}
+
+double S(double  C,double V)
+{
+ return V-C;
+}
+
+double I(double  C,double V)
+{
+ return V-C;
+}
+
+//S=I economiile egale cu investitiile
+
+//inclinatia marginala spre economii s
+double s(double  DS,double DV)
+{
+ return DS/DV;
+}
+
+//s+c = 1
+//0<s<1
+
+//multiplicatorul investiilor K
+double K(double  DV,double DI)
+{
+ return DV/DI;
+}
+double DV(double  K,double DI)
+{
+ return K*DI;
+}
+double DV2(double  DC,double DI)
+{
+ return DC+DI;
+}
+
+double DI(double  DV,double DC)
+{
+ return DV-DC;
+}
+
+double K2(double  DV,double DC)
+{
+ return DV/(DV-DC);
+}
+
+double K3(double  DV,double DC)
+{
+ return 1/(1-(DC/DV));
+}
+
+double K4(double  c)
+{
+ return 1/(1-c);
+}
+
+double K5(double  s)
+{
+ return 1/s;
+}
+
+//eficienta economica Ec
+//veniturile realizate Vr
+//factori de productie consumati CFP
+
+double Ec(double  Vr, double CFRP)
+{
+ return Vr/CFP;
+}
+
+double E0(double  Vr, double CFRP)
+{
+ return CFP/Vr;
+}
+
+//volum incasari firma din activitatea depusa VIF
+//volumul costurilor efect pt obt venit resp VCEP
+//VIF =- VCEP
+
+//echilibrul economic
+//oferta globala Y
+//cererea globala D
+//Y==D
+
+
+
+//volum bunuri eco importate H
+//export de bun eco E
+//economii S
+//invest interne I
+//consum intern de bun eco C
+//volum bun eco realiz in tara Y
+
+//Y+H = D+E
+//C+S+H=C+I+E
+//S+H=I+E
+//S-I=E-H
+
+
+//echilibrul pietei monetare
+//oferta de bani Ym
+//cererea de bani Dm
+// Ym==Dm
+
+//echilibrul pe piata monetara
+//viteza de circulatie a banilor V
+//masa moetara M
+//volum global al tranzactiilor de pe piata T
+//nivel gen al preturilor P
+//MV==PT
+
+
+
+//cererea si oferta de munca
+//cerere de munca YL
+//oferat de munca DL
+//YL==DL
+
+
+//inflatia
+//indicele preturilor iP
+//preturile P1, P2
+
+double iP(double  P1, double P2)
+{
+ return (P1/P2)*100;
+}
+
+
+//puterea de cumparare a banilor PCB
+//masa moetara M
+//nivel preturi P
+
+double PCB(double  M, double P)
+{
+ return M/P;
+}
+
+//det rentabailitatea comertului exterior 
+//cursul de revenire brut la export Cm
+//cursul de revenire brut la export Cn
+//pretul produs pe piata int Pi
+//cheltuieli de circulatie la frontiera Cc
+//pretul in valuta a acestei marfi la frontiera Pe
+
+double Cm(double  Pi, double Cc, double Pe)
+{
+ return (Pi+Cc)/Pe;
+}
+
+
+//taxe de import percepute pe marfa Ti
+//pretul de import in vakura al marfii Piv
+
+double Cn(double  Pi, double Ti, double Piv)
+{
+ return (Pi-Ti)/Piv;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
